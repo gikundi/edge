@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/gikundi/Desktop/edge/app/Http/routes.php</file>
+            <file>file:/home/gikundi/Desktop/edge/resources/views/layouts/layout.blade.php</file>
+            <file>file:/home/gikundi/Desktop/edge/config/services.php</file>
+            <file>file:/home/gikundi/Desktop/edge/app/Http/Controllers/Auth/AuthController.php</file>
+            <file>file:/home/gikundi/Desktop/edge/resources/views/login.blade.php</file>
+            <file>file:/home/gikundi/Desktop/edge/config/view.php</file>
+            <file>file:/home/gikundi/Desktop/edge/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/home/gikundi/Desktop/edge/config/app.php</file>
+            <file>file:/home/gikundi/Desktop/edge/app/Http/Controllers/Controller.php</file>
+            <file>file:/home/gikundi/Desktop/edge/app/User.php</file>
+            <file>file:/home/gikundi/Desktop/edge/composer.json</file>
+        </group>
+    </open-files>
+</project-private>

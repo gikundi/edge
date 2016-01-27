@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Laravel\Socialite\Facades\Socialite;
 use Validator;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -73,7 +75,8 @@ use AuthenticatesAndRegistersUsers,
      *
      * @return Response
      */
-    public function redirectToProvider() {
+    public function redirectToProvider()
+    {
         return Socialite::driver('github')->redirect();
     }
 
@@ -82,7 +85,8 @@ use AuthenticatesAndRegistersUsers,
      *
      * @return Response
      */
-    public function handleProviderCallback() {
+    public function handleProviderCallback()
+    {
         try {
             $user = Socialite::driver('github')->user();
         } catch (Exception $e) {
@@ -102,16 +106,17 @@ use AuthenticatesAndRegistersUsers,
      * @param $githubUser
      * @return User
      */
-    private function findOrCreateUser($githubUser) {
+    private function findOrCreateUser($githubUser)
+    {
         if ($authUser = User::where('github_id', $githubUser->id)->first()) {
             return $authUser;
         }
 
         return User::create([
-                    'name' => $githubUser->name,
-                    'email' => $githubUser->email,
-                    'github_id' => $githubUser->id,
-                    'avatar' => $githubUser->avatar
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            'avatar' => $githubUser->avatar
         ]);
     }
 

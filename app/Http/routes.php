@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('login');
 });
 
+
+Route::get('/home', function () {
+    return view('home');
+});
+
 /*
   |--------------------------------------------------------------------------
   | Application Routes
@@ -27,15 +32,10 @@ Route::get('/', function () {
  */
 
 Route::group(['middleware' => ['web']], function () {
-    
-    
-    
-Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 
-    
-    
-    
-    
+
+
+    Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+    Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 });
 
