@@ -18,17 +18,7 @@ Route::get('/', function () {
 
 Route::get('/home', ['uses' => 'GithubController@index', 'as' => 'index']);
 
-
-
-
-Route::get('/edit', ['uses' => 'GithubController@edit', 'as' => 'edit_file']);
-
-Route::post('/update', ['uses' => 'GithubController@update', 'as' => 'update_file']);
-
-Route::get('/commits', ['uses' => 'GithubController@commits', 'as' => 'commits']);
-
-Route::get('/authorizations', ['uses' => 'GithubController@authorizations', 'as' => 'authorizations']);
-
+Route::get('/comment/{$comment}', ['uses' => 'GithubController@addComment', 'as' => 'index']);
 
 /*
   |--------------------------------------------------------------------------
@@ -40,9 +30,7 @@ Route::get('/authorizations', ['uses' => 'GithubController@authorizations', 'as'
   | kernel and includes session state, CSRF protection, and more.
   |
  */
-
 Route::group(['middleware' => ['web']], function () {
-
 
     Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
     Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
