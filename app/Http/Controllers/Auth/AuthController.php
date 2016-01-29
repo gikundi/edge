@@ -94,12 +94,12 @@ use AuthenticatesAndRegistersUsers,
 
             $token = $user->token;
 
-            $toke = '1234tetdfd';
+         
             $path = base_path('.env');
 
             if (file_exists($path)) {
                 file_put_contents($path, str_replace(
-                                'GITHUB_TOKEN=' . $this->laravel['config']['github.token'], 'GITHUB_TOKEN=' . $toke, file_get_contents($path)
+                                'GITHUB_TOKEN=' . $this->laravel['config']['github.token'], 'GITHUB_TOKEN=' . $token, file_get_contents($path)
                         
                         
                         
