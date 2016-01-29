@@ -6,7 +6,6 @@ use App\User;
 use Laravel\Socialite\Facades\Socialite;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
-use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -31,6 +30,11 @@ use AuthenticatesAndRegistersUsers,
      *
      * @var string
      */
+
+      protected $laravel;
+
+
+
     protected $redirectTo = '/';
 
     /**
@@ -75,8 +79,7 @@ use AuthenticatesAndRegistersUsers,
      *
      * @return Response
      */
-    public function redirectToProvider()
-    {
+    public function redirectToProvider() {
         return Socialite::driver('github')->redirect();
     }
 
@@ -85,17 +88,27 @@ use AuthenticatesAndRegistersUsers,
      *
      * @return Response
      */
-    public function handleProviderCallback()
-    {
+    public function handleProviderCallback() {
         try {
             $user = Socialite::driver('github')->user();
+
+            $token = $user->token;
+
+            $toke = '1234tetdfd';
+            $path = base_path('.env');
+
+            if (file_exists($path)) {
+                file_put_contents($path, str_replace(
+                                'GITHUB_TOKEN=' . $this->laravel['config']['github.token'], 'GITHUB_TOKEN=' . $toke, file_get_contents($path)
+                        
+                        
+                        
+                ));
+            }
+        
         } catch (Exception $e) {
             return Redirect::to('auth/github');
         }
-
-        $authUser = $this->findOrCreateUser($user);
-
-        Auth::login($authUser, true);
 
         return Redirect::to('home');
     }
@@ -106,18 +119,6 @@ use AuthenticatesAndRegistersUsers,
      * @param $githubUser
      * @return User
      */
-    private function findOrCreateUser($githubUser)
-    {
-        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
-            return $authUser;
-        }
-
-        return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar
-        ]);
-    }
+    
 
 }

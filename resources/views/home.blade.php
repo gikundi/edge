@@ -1,5 +1,13 @@
 <html>
     <body>
-        <h1> Welcome Gikundi</h1>
+        
+         @foreach($user as $user )
+         
+         
+        <h1> Welcome {{$user->email}}</h1>
+
+
+       @endforeach
+
     </body> 
 </html>

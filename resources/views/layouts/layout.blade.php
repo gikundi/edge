@@ -16,10 +16,16 @@
 
 
         <!-- start: CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link id="bootstrap-style" href="{{asset('css/bootstrap.min.css')}}"rel="stylesheet">
         <link href="{{asset('css/bootstrap-responsive.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/auth-buttons.css')}}" rel="stylesheet">
+
         <link id="base-style" href="{{asset('css/style.css')}}"rel="stylesheet">
         <link id="base-style-responsive" href="{{asset('css/style-responsive.css')}}" rel="stylesheet">
+
 
 
     </head>

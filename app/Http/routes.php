@@ -16,9 +16,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', ['uses' => 'GithubController@index', 'as' => 'index']);
+
+
+
+
+Route::get('/edit', ['uses' => 'GithubController@edit', 'as' => 'edit_file']);
+
+Route::post('/update', ['uses' => 'GithubController@update', 'as' => 'update_file']);
+
+Route::get('/commits', ['uses' => 'GithubController@commits', 'as' => 'commits']);
+
+Route::get('/authorizations', ['uses' => 'GithubController@authorizations', 'as' => 'authorizations']);
+
 
 /*
   |--------------------------------------------------------------------------
@@ -34,8 +44,8 @@ Route::get('/home', function () {
 Route::group(['middleware' => ['web']], function () {
 
 
-
     Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
     Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
 });
 
