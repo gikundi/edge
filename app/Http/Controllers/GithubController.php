@@ -54,7 +54,7 @@ class GithubController extends Controller {
         }
     }
 
-    public function addComment() {
+    public function addComment($comment) {
 
         $repos = $this->client->api('current_user')->repositories();
 
